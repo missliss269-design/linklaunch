@@ -1,286 +1,117 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LinkLaunch | Affiliate Marketing Hub</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#11142a">
+<title>LinkLaunch — Affiliate Marketing Hub</title>
 <style>
-:root{color-scheme:dark;--bg:#0b1020;--card:#151e32;--line:#34425e;--accent:#8877ff;--mint:#65e6bc;--muted:#b5bfd4}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:#f6f7ff;font:16px/1.5 system-ui,sans-serif}
-header{padding:20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.brand{font-size:23px;font-weight:900}.brand span{color:var(--mint)}
-main{max-width:1050px;margin:auto;padding:20px}
-h1{font-size:clamp(30px,6vw,48px);line-height:1.1}
-h2{font-size:20px;margin-top:0}
-p,.muted{color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;min-width:0}
-.full{grid-column:1/-1}
-label{display:block;color:var(--muted);font-size:14px;margin:12px 0 5px}
-input,textarea,select{width:100%;padding:12px;border:1px solid var(--line);border-radius:9px;background:#0c1425;color:white;font:inherit}
-textarea{min-height:75px}
-button{padding:11px 14px;border:0;border-radius:9px;background:var(--accent);color:white;font:inherit;font-weight:700;cursor:pointer;margin:8px 5px 0 0}
-.secondary{background:#293650}
-.item{border:1px solid var(--line);border-radius:10px;padding:12px;margin-top:10px;overflow-wrap:anywhere}
-.item small{display:block;color:var(--muted)}
-.stats{display:flex;gap:12px;flex-wrap:wrap}
-.stat{flex:1;min-width:90px;padding:12px;background:#202b43;border-radius:10px}
-.stat strong{display:block;font-size:24px}
-.preview{background:#fff;color:#182039;border-radius:14px;padding:24px}
-.preview p{color:#4e5a70}
-.preview a{display:inline-block;background:#5c49df;color:white;text-decoration:none;padding:12px 16px;border-radius:8px;font-weight:bold}
-footer{border-top:1px solid var(--line);margin-top:25px;padding-top:16px;font-size:13px;color:var(--muted)}
-@media(max-width:650px){.grid{grid-template-columns:1fr}.full{grid-column:auto}main{padding:14px}.card{padding:15px}}
+:root{--bg:#0b1020;--panel:#141a30;--panel2:#1a2240;--line:#2b3558;--text:#f5f7ff;--muted:#aab4d2;--purple:#9b8cff;--mint:#70f0c2;--danger:#ff9eaa}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#20234a 0,transparent 40%),var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:1180px;margin:auto;padding:22px 16px 50px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 0 24px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px}.logo{display:grid;place-items:center;width:46px;height:46px;border-radius:15px;background:linear-gradient(135deg,var(--purple),var(--mint));color:#10142a;font-weight:900;font-size:22px}.brand h1{margin:0;font-size:21px;letter-spacing:-.5px}.brand p{margin:1px 0 0;color:var(--muted);font-size:12px}.pill{border:1px solid #435078;border-radius:999px;padding:7px 12px;color:var(--mint);font-size:12px;white-space:nowrap}
+.hero{padding:35px 0 27px}.eyebrow{color:var(--mint);font-size:11px;font-weight:800;letter-spacing:2px}.hero h2{font-size:clamp(30px,5vw,48px);line-height:1.07;letter-spacing:-1.7px;max-width:740px;margin:12px 0}.hero p{max-width:700px;color:var(--muted);font-size:16px;margin:0}
+.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:10px 0 24px}.metric,.card{background:linear-gradient(145deg,rgba(26,34,64,.96),rgba(17,23,43,.96));border:1px solid var(--line);border-radius:18px}.metric{padding:17px 19px}.metric span{display:block;color:var(--muted);font-size:12px}.metric strong{display:block;font-size:28px;margin-top:4px;letter-spacing:-.7px}
+.workspace{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.card{padding:20px;min-width:0}.card h3{font-size:17px;margin:0 0 4px;letter-spacing:-.3px}.sub{color:var(--muted);font-size:12px;margin:0 0 18px}.num{color:var(--mint);font-weight:800;margin-right:7px}
+label{display:block;color:#dce2f7;font-size:12px;font-weight:650;margin:12px 0 6px}input,textarea,select{display:block;width:100%;border:1px solid #364166;border-radius:10px;background:#0d1327;color:var(--text);padding:11px 12px;font:inherit;font-size:14px;outline:none}input:focus,textarea:focus,select:focus{border-color:var(--purple);box-shadow:0 0 0 3px #9b8cff22}textarea{resize:vertical;min-height:76px}select{appearance:auto}.check{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:12px;margin:14px 0}.check input{width:auto;accent-color:var(--mint)}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}.btn{border:0;border-radius:10px;padding:10px 14px;background:var(--purple);color:#11142a;font-weight:800;font-size:13px;cursor:pointer}.btn.secondary{background:#242d4c;color:var(--text);border:1px solid #3a466d}.btn.mint{background:var(--mint)}.btn:hover{filter:brightness(1.08)}.status{min-height:18px;color:var(--mint);font-size:12px;margin-top:10px}
+.saved{margin-top:14px;display:grid;gap:8px}.item{border:1px solid #303b60;background:#10172b;border-radius:12px;padding:12px;display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.item strong{display:block;font-size:13px;overflow-wrap:anywhere}.item small{display:block;color:var(--muted);font-size:11px;overflow-wrap:anywhere}.remove{background:transparent;color:var(--danger);border:1px solid #75404d;border-radius:8px;padding:5px 8px;cursor:pointer;font-size:11px;flex-shrink:0}
+.preview-card{margin-top:16px}.preview{background:#f7f7fb;color:#1a1d32;border-radius:15px;padding:24px;min-height:250px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}.preview .tag{color:#6b58d9;font-size:10px;letter-spacing:1.5px;font-weight:900}.preview h4{font-size:clamp(23px,4vw,34px);line-height:1.12;margin:12px 0;max-width:560px;letter-spacing:-.8px}.preview p{color:#54596f;max-width:560px;margin:0 0 18px}.preview a{display:inline-block;text-decoration:none;border-radius:9px;background:#6957e8;color:white;padding:11px 16px;font-size:13px;font-weight:800}.disclosure{font-size:10px!important;color:#73778a!important;margin:16px 0 0!important}
+.campaign{margin-top:16px}.footer{color:#858eae;font-size:11px;text-align:center;margin-top:28px;line-height:1.7}.empty{color:#8792b3;font-size:12px;border:1px dashed #394466;border-radius:10px;padding:12px}
+@media(max-width:760px){.wrap{padding:14px 12px 35px}.top{align-items:flex-start}.pill{white-space:normal;text-align:center;max-width:130px}.workspace{grid-template-columns:1fr}.metrics{gap:8px}.metric{padding:12px}.metric strong{font-size:23px}.metric span{font-size:11px}.hero{padding:27px 0 20px}.card{padding:16px}.brand h1{font-size:18px}}
+@media(max-width:370px){.metrics{grid-template-columns:1fr}.top{flex-direction:column}}
 </style>
 </head>
 <body>
-<header>
-  <div class="brand">✦ Link<span>Launch</span></div>
-  <div class="muted">Your affiliate marketing workspace</div>
+<div class="wrap">
+<header class="top">
+  <div class="brand"><div class="logo">L</div><div><h1>LinkLaunch</h1><p>Your affiliate marketing workspace</p></div></div>
+  <div class="pill">YOUR BUSINESS. YOUR LINKS. YOUR PAGES.</div>
 </header>
-<main>
-  <p style="color:var(--mint);font-weight:bold">YOUR BUSINESS. YOUR LINKS. YOUR PAGES.</p>
-  <h1>Launch your next affiliate campaign.</h1>
+<section class="hero">
+  <div class="eyebrow">YOUR CAMPAIGN WORKSPACE</div>
+  <h2>Launch your next affiliate campaign.</h2>
   <p>Organize offers, create promotional pages, and plan your marketing in one place.</p>
-
-  <section class="card full">
-    <h2>Dashboard</h2>
-    <div class="stats">
-      <div class="stat"><strong id="offerCount">0</strong><small>Offers</small></div>
-      <div class="stat"><strong id="campaignCount">0</strong><small>Campaigns</small></div>
-      <div class="stat"><strong id="pageCount">0</strong><small>Page downloads</small></div>
-    </div>
-  </section>
-
-  <div class="grid" style="margin-top:16px">
-    <section class="card">
-      <h2>1. Affiliate link manager</h2>
-      <label for="offerName">Product or offer name</label>
-      <input id="offerName" placeholder="Example: Email marketing course">
-      <label for="offerUrl">Your affiliate link</label>
-      <input id="offerUrl" type="url" placeholder="https://example.com/?ref=you">
-      <label for="offerNotes">Commission and notes</label>
-      <textarea id="offerNotes" placeholder="Commission, audience, reminders..."></textarea>
-      <button id="addOffer">Save offer</button>
-      <button class="secondary" id="exportOffers">Export offers CSV</button>
-      <div id="offers"></div>
-    </section>
-
-    <section class="card">
-      <h2>2. Secret-page style builder</h2>
-      <label for="pageName">Page name</label>
-      <input id="pageName" value="My Featured Offer">
-      <label for="headline">Headline</label>
-      <input id="headline" value="Discover a better way to get started">
-      <label for="description">Supporting text</label>
-      <textarea id="description">Explore this resource and decide whether it fits your goals.</textarea>
-      <label for="buttonText">Call-to-action button</label>
-      <input id="buttonText" value="View the offer">
-      <label for="destination">Destination URL</label>
-      <input id="destination" type="url" placeholder="Paste your affiliate URL">
-      <label><input id="disclosure" type="checkbox" checked style="width:auto"> Include affiliate disclosure</label>
-      <button id="downloadPage">Download landing page HTML</button>
-      <p class="muted">Downloads a separate HTML page you can publish online.</p>
-    </section>
-
-    <section class="card full">
-      <h2>3. Live landing-page preview</h2>
-      <div class="preview">
-        <small>FEATURED RESOURCE</small>
-        <h2 id="previewHeadline">Discover a better way to get started</h2>
-        <p id="previewDescription">Explore this resource and decide whether it fits your goals.</p>
-        <a href="#" id="previewLink">View the offer →</a>
-        <p id="previewDisclosure" style="font-size:12px">Disclosure: I may earn a commission if you buy through this link, at no extra cost to you.</p>
-      </div>
-    </section>
-
-    <section class="card full">
-      <h2>4. Marketing campaign planner</h2>
-      <label for="campaignName">Campaign name</label>
-      <input id="campaignName" placeholder="Example: October email campaign">
-      <label for="channel">Marketing channel</label>
-      <select id="channel">
-        <option>Email</option><option>Social media</option>
-        <option>Short-form video</option><option>Blog / SEO</option>
-        <option>Other</option>
-      </select>
-      <label for="campaignGoal">Goal or next action</label>
-      <textarea id="campaignGoal" placeholder="What do you need to do next?"></textarea>
-      <button id="addCampaign">Save campaign</button>
-      <div id="campaigns"></div>
-    </section>
+</section>
+<section class="metrics" aria-label="Dashboard totals">
+  <div class="metric"><span>Offers saved</span><strong id="offerCount">0</strong></div>
+  <div class="metric"><span>Campaigns planned</span><strong id="campaignCount">0</strong></div>
+  <div class="metric"><span>Page downloads</span><strong id="downloadCount">0</strong></div>
+</section>
+<main>
+<div class="workspace">
+<section class="card">
+  <h3><span class="num">1.</span>Affiliate link manager</h3>
+  <p class="sub">Keep your offer links, commissions, and notes organized.</p>
+  <form id="offerForm">
+    <label for="offerName">Product or offer name</label><input id="offerName" required placeholder="e.g. Beginner Email Marketing Course">
+    <label for="offerUrl">Your affiliate link</label><input id="offerUrl" type="url" required placeholder="https://example.com/your-link">
+    <label for="offerNotes">Commission and notes</label><textarea id="offerNotes" placeholder="Commission, cookie duration, audience, or reminders"></textarea>
+    <div class="actions"><button class="btn" type="submit">Save offer</button><button class="btn secondary" id="exportOffers" type="button">Export offers CSV</button></div>
+    <div class="status" id="offerStatus" role="status"></div>
+  </form>
+  <div class="saved" id="offerList"></div>
+</section>
+<section class="card">
+  <h3><span class="num">2.</span>Secret-page style builder</h3>
+  <p class="sub">Create a simple standalone promotional page for an offer.</p>
+  <label for="pageName">Page name (for your file)</label><input id="pageName" placeholder="my-special-offer">
+  <label for="pageHeadline">Headline</label><input id="pageHeadline" value="Discover a smarter way to grow">
+  <label for="pageSupport">Supporting text</label><textarea id="pageSupport">A practical resource to help you take the next step. Explore the details and decide whether it is right for you.</textarea>
+  <label for="pageCta">Call-to-action button</label><input id="pageCta" value="See the offer">
+  <label for="pageUrl">Destination URL</label><input id="pageUrl" type="url" placeholder="https://example.com/your-affiliate-link">
+  <label class="check"><input id="includeDisclosure" type="checkbox" checked> Include affiliate disclosure</label>
+  <div class="actions"><button class="btn mint" id="downloadPage" type="button">Download landing page HTML</button></div>
+  <div class="status" id="pageStatus" role="status"></div>
+</section>
+</div>
+<section class="card preview-card">
+  <h3><span class="num">3.</span>Live landing-page preview</h3>
+  <p class="sub">The preview updates as you edit the page builder above.</p>
+  <div class="preview">
+    <div class="tag">FEATURED RESOURCE</div>
+    <h4 id="previewHeadline">Discover a smarter way to grow</h4>
+    <p id="previewSupport">A practical resource to help you take the next step. Explore the details and decide whether it is right for you.</p>
+    <a id="previewCta" href="#" target="_blank" rel="noopener noreferrer">See the offer</a>
+    <p class="disclosure" id="previewDisclosure">Disclosure: This page may contain affiliate links. If you buy through a link, I may earn a commission at no extra cost to you.</p>
   </div>
-
-  <footer>
-    LinkLaunch is an independent starter project, not affiliated with Secret Page 2.0.
-    Clearly disclose affiliate relationships, use truthful claims, and follow the rules
-    of your affiliate programs. This version stores information in this browser only.
-  </footer>
+</section>
+<section class="card campaign">
+  <h3><span class="num">4.</span>Marketing campaign planner</h3>
+  <p class="sub">Turn an offer into a small, actionable promotion plan.</p>
+  <form id="campaignForm">
+    <label for="campaignName">Campaign name</label><input id="campaignName" required placeholder="e.g. October beginner guide">
+    <label for="campaignChannel">Marketing channel</label>
+    <select id="campaignChannel"><option>Short-form video</option><option>Email newsletter</option><option>Blog or SEO</option><option>Social media post</option><option>YouTube</option><option>Community</option><option>Paid advertising</option><option>Other</option></select>
+    <label for="campaignGoal">Goal / next action</label><textarea id="campaignGoal" required placeholder="e.g. Publish 3 helpful videos and track clicks"></textarea>
+    <div class="actions"><button class="btn" type="submit">Save campaign</button></div><div class="status" id="campaignStatus" role="status"></div>
+  </form>
+  <div class="saved" id="campaignList"></div>
+</section>
 </main>
+<footer class="footer">LinkLaunch is an independent project and is not affiliated with Secret Page 2.0.<br>Disclose affiliate relationships, use truthful claims, and follow each affiliate program's rules.<br>Starter version: your information is stored in this browser on this device. It does not sync to the cloud.</footer>
+</div>
 <script>
-const $ = id => document.getElementById(id);
-const read = (key) => {
-  try { return JSON.parse(localStorage.getItem(key)) || []; }
-  catch { return []; }
-};
-let offers = read("ll_offers");
-let campaigns = read("ll_campaigns");
-let pageDownloads = Number(localStorage.getItem("ll_downloads") || 0);
-
-function save(key, data) {
-  localStorage.setItem(key, JSON.stringify(data));
+const $=id=>document.getElementById(id);
+const read=(key)=>{try{return JSON.parse(localStorage.getItem(key)||'[]')}catch{return []}};
+const write=(key,value)=>localStorage.setItem(key,JSON.stringify(value));
+let offers=read('linklaunch_offers'), campaigns=read('linklaunch_campaigns'), downloads=Number(localStorage.getItem('linklaunch_downloads')||0);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function safeUrl(value){try{const u=new URL(value);return ['http:','https:'].includes(u.protocol)?u.href:'#'}catch{return '#'}}
+function render(){
+ $('offerCount').textContent=offers.length;$('campaignCount').textContent=campaigns.length;$('downloadCount').textContent=downloads;
+ $('offerList').innerHTML=offers.length?offers.map((o,i)=>`<div class="item"><div><strong>${esc(o.name)}</strong><small><a style="color:#b7aaff" href="${esc(safeUrl(o.url))}" target="_blank" rel="noopener noreferrer">${esc(o.url)}</a></small><small>${esc(o.notes||'No notes added')}</small></div><button class="remove" data-remove-offer="${i}">Remove</button></div>`).join(''):'<div class="empty">Your saved offers will appear here.</div>';
+ $('campaignList').innerHTML=campaigns.length?campaigns.map((c,i)=>`<div class="item"><div><strong>${esc(c.name)}</strong><small>${esc(c.channel)}</small><small>${esc(c.goal)}</small></div><button class="remove" data-remove-campaign="${i}">Remove</button></div>`).join(''):'<div class="empty">Your saved campaigns will appear here.</div>';
 }
-function validUrl(value) {
-  try {
-    const u = new URL(value);
-    return u.protocol === "https:" || u.protocol === "http:";
-  } catch { return false; }
-}
-function addText(parent, tag, value) {
-  const el = document.createElement(tag);
-  el.textContent = value;
-  parent.appendChild(el);
-  return el;
-}
-function render() {
-  $("offerCount").textContent = offers.length;
-  $("campaignCount").textContent = campaigns.length;
-  $("pageCount").textContent = pageDownloads;
-
-  $("offers").replaceChildren();
-  offers.forEach((o, i) => {
-    const box = document.createElement("div");
-    box.className = "item";
-    addText(box, "strong", o.name);
-    addText(box, "small", o.url);
-    addText(box, "p", o.notes || "No notes added.");
-    const use = document.createElement("button");
-    use.textContent = "Use in page";
-    use.onclick = () => {
-      $("destination").value = o.url;
-      updatePreview();
-    };
-    const del = document.createElement("button");
-    del.className = "secondary";
-    del.textContent = "Delete";
-    del.onclick = () => {
-      offers.splice(i, 1);
-      save("ll_offers", offers);
-      render();
-    };
-    box.append(use, del);
-    $("offers").append(box);
-  });
-
-  $("campaigns").replaceChildren();
-  campaigns.forEach((c, i) => {
-    const box = document.createElement("div");
-    box.className = "item";
-    addText(box, "strong", c.name);
-    addText(box, "small", c.channel + " · " + c.goal);
-    const del = document.createElement("button");
-    del.className = "secondary";
-    del.textContent = "Delete";
-    del.onclick = () => {
-      campaigns.splice(i, 1);
-      save("ll_campaigns", campaigns);
-      render();
-    };
-    box.append(del);
-    $("campaigns").append(box);
-  });
-}
-function updatePreview() {
-  $("previewHeadline").textContent = $("headline").value;
-  $("previewDescription").textContent = $("description").value;
-  $("previewLink").textContent = $("buttonText").value + " →";
-  $("previewLink").href = validUrl($("destination").value)
-    ? $("destination").value : "#";
-  $("previewDisclosure").hidden = !$("disclosure").checked;
-}
-["headline","description","buttonText","destination","disclosure"].forEach(id => {
-  $(id).addEventListener("input", updatePreview);
-});
-$("addOffer").onclick = () => {
-  const name = $("offerName").value.trim();
-  const url = $("offerUrl").value.trim();
-  if (!name || !validUrl(url)) {
-    alert("Enter an offer name and a valid http or https URL.");
-    return;
-  }
-  offers.unshift({name, url, notes:$("offerNotes").value.trim()});
-  save("ll_offers", offers);
-  $("offerName").value = "";
-  $("offerUrl").value = "";
-  $("offerNotes").value = "";
-  render();
-};
-$("addCampaign").onclick = () => {
-  const name = $("campaignName").value.trim();
-  if (!name) { alert("Enter a campaign name."); return; }
-  campaigns.unshift({
-    name, channel:$("channel").value,
-    goal:$("campaignGoal").value.trim()
-  });
-  save("ll_campaigns", campaigns);
-  $("campaignName").value = "";
-  $("campaignGoal").value = "";
-  render();
-};
-function downloadFile(name, content, type) {
-  const url = URL.createObjectURL(new Blob([content], {type}));
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = name;
-  a.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1500);
-}
-$("exportOffers").onclick = () => {
-  const quote = v => '"' + String(v).replace(/"/g, '""') + '"';
-  const csv = [["Name","URL","Notes"], ...offers.map(o =>
-    [o.name,o.url,o.notes])].map(row => row.map(quote).join(",")).join("\r\n");
-  downloadFile("linklaunch-offers.csv", csv, "text/csv;charset=utf-8");
-};
-$("downloadPage").onclick = () => {
-  const destination = $("destination").value.trim();
-  if (!validUrl(destination)) {
-    alert("Add a valid http or https destination URL first.");
-    return;
-  }
-  const escapeHTML = value => String(value).replace(/[&<>"]/g, ch =>
-    ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
-  const disclosure = $("disclosure").checked
-    ? '<p class="disclosure">Disclosure: I may earn a commission if you purchase through this link, at no extra cost to you.</p>'
-    : "";
-  const html = `<!doctype html>
-<html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${escapeHTML($("pageName").value)}</title>
-<style>
-body{font:18px/1.6 system-ui,sans-serif;margin:0;color:#192039}
-main{max-width:720px;margin:7vh auto;padding:24px}
-article{background:#eeeaff;padding:clamp(24px,6vw,52px);border-radius:20px}
-h1{font-size:clamp(32px,7vw,52px);line-height:1.1}
-a{display:inline-block;background:#5c49df;color:white;padding:13px 18px;border-radius:9px;text-decoration:none;font-weight:bold}
-.disclosure{font-size:13px;color:#555}
-</style></head><body><main><article>
-<h1>${escapeHTML($("headline").value)}</h1>
-<p>${escapeHTML($("description").value)}</p>
-<a href="${escapeHTML(destination)}" rel="sponsored nofollow noopener" target="_blank">${escapeHTML($("buttonText").value)}</a>
-${disclosure}</article>
-<p>Review the offer details and decide whether it meets your needs.</p>
-</main></body></html>`;
-  const filename = ($("pageName").value || "landing-page")
-    .toLowerCase().replace(/[^a-z0-9]+/g,"-") + ".html";
-  downloadFile(filename, html, "text/html;charset=utf-8");
-  pageDownloads++;
-  localStorage.setItem("ll_downloads", pageDownloads);
-  render();
-};
-render();
-updatePreview();
+$('offerForm').addEventListener('submit',e=>{e.preventDefault();const name=$('offerName').value.trim(),url=safeUrl($('offerUrl').value.trim());if(url==='#'){ $('offerStatus').textContent='Please enter a valid http:// or https:// link.';return}offers.unshift({name,url,notes:$('offerNotes').value.trim()});write('linklaunch_offers',offers);e.target.reset();$('offerStatus').textContent='Offer saved on this device.';render()});
+$('campaignForm').addEventListener('submit',e=>{e.preventDefault();campaigns.unshift({name:$('campaignName').value.trim(),channel:$('campaignChannel').value,goal:$('campaignGoal').value.trim()});write('linklaunch_campaigns',campaigns);e.target.reset();$('campaignStatus').textContent='Campaign saved on this device.';render()});
+document.addEventListener('click',e=>{const oi=e.target.dataset.removeOffer,ci=e.target.dataset.removeCampaign;if(oi!==undefined){offers.splice(Number(oi),1);write('linklaunch_offers',offers);render()}if(ci!==undefined){campaigns.splice(Number(ci),1);write('linklaunch_campaigns',campaigns);render()}});
+$('exportOffers').addEventListener('click',()=>{if(!offers.length){$('offerStatus').textContent='Save at least one offer before exporting.';return}const cell=v=>'"'+String(v??'').replace(/"/g,'""')+'"';const csv=[['Product or offer name','Affiliate link','Commission and notes'],...offers.map(o=>[o.name,o.url,o.notes])].map(r=>r.map(cell).join(',')).join('\r\n');downloadBlob(csv,'linklaunch-offers.csv','text/csv;charset=utf-8');$('offerStatus').textContent='Your CSV export is ready.'});
+const updatePreview=()=>{const headline=$('pageHeadline').value||'Your offer headline';const support=$('pageSupport').value||'';const cta=$('pageCta').value||'Learn more';$('previewHeadline').textContent=headline;$('previewSupport').textContent=support;$('previewCta').textContent=cta;$('previewCta').href=safeUrl($('pageUrl').value);$('previewDisclosure').hidden=!$('includeDisclosure').checked};
+['pageHeadline','pageSupport','pageCta','pageUrl','includeDisclosure'].forEach(id=>$(id).addEventListener('input',updatePreview));
+function downloadBlob(content,name,type){const blob=new Blob([content],{type});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+$('downloadPage').addEventListener('click',()=>{const headline=$('pageHeadline').value.trim()||'Discover a smarter way to grow',support=$('pageSupport').value.trim(),cta=$('pageCta').value.trim()||'See the offer',url=safeUrl($('pageUrl').value.trim());if(url==='#'){$('pageStatus').textContent='Add a valid destination URL before downloading.';return}const disclosure=$('includeDisclosure').checked?'<p class="disclosure">Disclosure: This page contains an affiliate link. If you buy through it, I may earn a commission at no extra cost to you.</p>':'';const page=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(headline)}</title><style>body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;box-sizing:border-box;background:#10142a;color:#f7f7ff;font:16px/1.6 system-ui,sans-serif}.box{max-width:680px;text-align:center;padding:38px 26px;border:1px solid #343b60;border-radius:22px;background:#191f3b}h1{font-size:clamp(30px,7vw,52px);line-height:1.08;letter-spacing:-1px;margin:15px 0}p{color:#c0c7df}.tag{color:#70f0c2;letter-spacing:2px;font-size:11px;font-weight:800}.cta{display:inline-block;margin-top:12px;padding:13px 20px;border-radius:10px;background:#9b8cff;color:#10142a;text-decoration:none;font-weight:800}.disclosure{font-size:11px;color:#9ba5c7;margin-top:24px}</style></head><body><main class="box"><div class="tag">FEATURED RESOURCE</div><h1>${esc(headline)}</h1><p>${esc(support).replace(/\n/g,'<br>')}</p><a class="cta" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(cta)}</a>${disclosure}</main></body></html>`;const base=($('pageName').value.trim()||'linklaunch-page').toLowerCase().replace(/[^a-z0-9-_]+/g,'-').replace(/^-+|-+$/g,'')||'linklaunch-page';downloadBlob(page,base+'.html','text/html;charset=utf-8');downloads++;localStorage.setItem('linklaunch_downloads',String(downloads));$('pageStatus').textContent='Landing page HTML downloaded. Upload this file to your free host to publish it.';render()});
+updatePreview();render();
 </script>
 </body>
 </html>
